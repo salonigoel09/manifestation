@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Positive Affirmations</title>
     <link rel="stylesheet" href="style.css">
+    
    
 </head>
 <body>
@@ -32,6 +33,14 @@
         <div class="container">
             <h2>Positive Affirmations</h2>
             <p>Receive personalized affirmations every day to boost your confidence and positivity.</p>
+            <div id="affirmations-list" class="affirmations-list">
+
+            </div>
+            <h3>Add your Own Affirmations</h3>
+            <form id="add-affirmation-form" class="add-affirmation-form">
+                <input type="text" id="new-affirmation" placeholder="Enter your favourite affirmations" required>
+                <button type="submit">Add Affirmation</button>
+            </form>
         </div>
     </section>
 
@@ -45,5 +54,6 @@
             </div>
         </div>
     </footer>
+    <script type="module" src="affirmations.js" defer></script>
     </body>
     </html>
