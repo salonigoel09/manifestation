@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -6,8 +8,10 @@
         <title>Login</title>
         <link rel="stylesheet" href="style.css">
         
+        
     </head>
     <body>
+        
         <header>
             <div class="container">
                 <div class="logo">
@@ -22,7 +26,7 @@
                         <li><a href="progress.html">Progress</a></li>
                         <li><a href="profile.html">Profile</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login.html" class="login-button">Login</a></li>
+                        <li><a href="signup.html" class="signup-button">Sign Up</a></li>
                     </ul>
                 </nav>
             </div>
@@ -31,9 +35,9 @@
         <section class="login">
             <div class="container">
                 <h2>Login</h2>
-                <form id="login-form">
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="password" placeholder="Password" required>
+                <form id="login-form" autocomplete="on">
+                <input type="email" id="login-email" placeholder="Email" name="email" autocomplete="email">
+                <input type="password" name="password" id="login-password" placeholder="Password" required autocomplete="current-password">
                 <button type="submit">Login</button> 
                 </form>
                 <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
@@ -50,6 +54,7 @@
             </div>
             </div>
         </footer>
+        <script type="module" src="script.js"></script>
     </body>
 
 </html>
