@@ -18,13 +18,24 @@ const firebaseConfig = {
   const auth= getAuth(app);
   const database= getDatabase(app);
 
-  const affirmations = {
-    "1": ["I am confident and capable.", "I attract positive energy into my life."],
-    "2": ["I believe in myself and my abilities.", "I am surrounded by love and support."],
-    "3": ["I am grateful for all the good things in my life.", "I am becoming the best version of myself."],
-    "209":["I believe in myself and my abilities.", "I am surrounded by love and support."]
-    // Add more days here
-  };
+  const predefinedAffirmations = [
+    "I am confident and capable.",
+    "I attract positive energy into my life.",
+    "I believe in myself and my abilities.",
+    "I am surrounded by love and support.",
+    "I am grateful for all the good things in my life.",
+    "I am becoming the best version of myself."
+];
+
+// Generate 365 days of affirmations
+const affirmations = {};
+for (let day = 1; day <= 365; day++) {
+    affirmations[day] = [
+        predefinedAffirmations[(day - 1) % predefinedAffirmations.length],
+        predefinedAffirmations[(day) % predefinedAffirmations.length]
+    ];
+}
+
   
   const affirmationsRef = ref(database, 'affirmations');
   set(affirmationsRef, affirmations)
