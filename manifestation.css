@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+header .logo h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    font-weight: bold;
+}
+
+header .login-button {
+    background: #f39c12;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+section {
+    padding: 2rem 0;
+}
+
+.manifestation {
+    background-color:antiquewhite;
+    text-align: center;
+}
+
+.manifestation h2 {
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.feature {
+    background-color:seashell;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+    color: #f39c12;
+    margin-bottom: 1rem;
+}
+
+.feature p, .feature textarea, .feature button {
+    margin: 1rem 0;
+}
+
+textarea {
+    width: 80%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background: #f39c12;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e67e22;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+footer .social-links a {
+    color: #fff;
+    margin: 0 0.5rem;
+}
+
+.feature ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.feature ul li {
+    background: #f1f1f1;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+}
+
+/*.feature ul li::before {
+    content: "•";  Custom bullet point 
+    color: #333;
+    font-size: 1.5em;
+    margin-right: 10px;
+}*/
+

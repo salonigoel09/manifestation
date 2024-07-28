@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manifestation Exercises</title>
-    <link rel="stylesheet" href="style.css">
-   
-
+    <link rel="stylesheet" href="manifestation.css">
 </head>
 <body>
     <header>
@@ -33,7 +31,35 @@
         <div class="container">
             <h2>Manifestation Exercises</h2>
             <p>Engage in guided exercises to help you manifest your goals and desires.</p>
-            <!-- Add manifestation exercises content here -->
+            <div class="feature" id="daily-prompts">
+                <h3>Daily Manifestation Prompt</h3>
+                <div id="prompts-list"></div>
+            </div>
+            <div class="feature" id="guided-videos">
+                <h3>Guided Videos</h3>
+                <p>Watch guided videos to help with your manifestation practice.</p>
+                <div class="video-list">
+                    <!-- Add video links or embedded videos here -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <!-- Add video content here -->
+            </div>
+            <div class="feature" id="journal">
+                <h3>Journal</h3>
+                <form id="journal-form">
+                    <textarea id="journal-entry" placeholder="Write your journal entry..."></textarea>
+                    <button type="submit">Add Entry</button>
+                </form>
+                <ul id="entries-list"></ul>
+            </div>
+            <div class="feature" id="gratitude-log">
+                <h3>Gratitude Log</h3>
+                <form id="gratitude-form">
+                    <textarea id="gratitude-entry" placeholder="Write what you're grateful for..."></textarea>
+                    <button type="submit">Add Entry</button>
+                </form>
+                <ul id="gratitude-list"></ul>
+            </div>
         </div>
     </section>
 
@@ -47,5 +73,7 @@
             </div>
         </div>
     </footer>
+
+    <script type="module" src="manifestation.js"></script>
 </body>
 </html>
