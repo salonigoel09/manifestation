@@ -5,6 +5,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+   
 }
 
 a {
@@ -89,7 +90,7 @@ section {
 }
 
 .testimonials {
-    background: #ffa07a;
+    background-color:pink;
     
     color: #fff;
     text-align: center;
