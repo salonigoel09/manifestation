@@ -13,13 +13,10 @@ const firebaseConfig = {
     measurementId: "G-TF2X2DYG4G"
 };
 
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
-
-
 
 // Function to save progress data to Firebase
 function saveProgressData(userId, data) {
@@ -60,28 +57,41 @@ function displayGoalData(goalData) {
     }
 }
 
-// Display mood data
+// Display mood data and show mood image
 function displayMoodData(moodData) {
     const moodText = document.getElementById('mood-text');
-    const moodEmoji = document.getElementById('mood-emoji');
+    const overlay = document.getElementById('overlay');
+    const moodImage = document.getElementById('mood-image');
 
     if (moodData) {
         moodText.textContent = moodData.text;
-        switch (moodData.text.toLowerCase()) {
-            case 'happy':
-                moodEmoji.textContent = '😊';
-                break;
-            case 'sad':
-                moodEmoji.textContent = '😢';
-                break;
-            case 'angry':
-                moodEmoji.textContent = '😠';
-                break;
-            default:
-                moodEmoji.textContent = '😐';
-                break;
+        
+        // Display the mood-related image
+        const moodImageUrl = getMoodImageUrl(moodData.text.toLowerCase());
+        if (moodImageUrl) {
+            moodImage.src = moodImageUrl;
+            overlay.style.display = 'block';  // Show the overlay
+            setTimeout(() => {
+                overlay.style.display = 'none';  // Hide after a few seconds
+            }, 3000);  // Display the image for 3 seconds
         }
     }
+}
+
+// Get image URL based on mood
+function getMoodImageUrl(mood) {
+    const moodImages = {
+        'happy': 'images/joy.png',
+        'excited': 'images/joy.png',
+        'sad': 'images/fear.png',
+        
+        'angry': 'images/anger.png',
+        'furious': 'images/anger.png',
+        'disgust': 'images/disgust.png',
+        'attitude': 'images/disgust.png'
+        // Add more mood-image pairs as needed
+    };
+    return moodImages[mood] || ''; // Return empty string if mood not found
 }
 
 // Event listeners for form submissions
