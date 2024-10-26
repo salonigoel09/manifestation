@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyA2sFPqPlegCzKATP6gaDH2o83kn5y1P98",
@@ -18,22 +18,22 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
 
-// Function to save progress data to Firebase
+// Function to update progress data without overwriting existing data
 function saveProgressData(userId, data) {
-    set(ref(database, 'progress/' + userId), data).catch((error) => {
+    update(ref(database, 'progress/' + userId), data).catch((error) => {
         console.error('Error saving progress data:', error);
     });
 }
 
-// Function to fetch and display progress data
+// Fetch and display progress data
 function fetchAndDisplayProgressData(userId) {
     const progressRef = ref(database, `progress/${userId}`);
     get(progressRef).then((snapshot) => {
         if (snapshot.exists()) {
             const progressData = snapshot.val();
             console.log('User Progress Data:', progressData);
-            displayGoalData(progressData.goal);
-            displayMoodData(progressData.mood);
+            if (progressData.goal) displayGoalData(progressData.goal);
+            if (progressData.mood) displayMoodData(progressData.mood);
         } else {
             console.log('No user progress data found.');
         }
@@ -46,13 +46,17 @@ function fetchAndDisplayProgressData(userId) {
 function displayGoalData(goalData) {
     const goalText = document.getElementById('goal-text');
     const progressFill = document.getElementById('progress-fill');
+    const overlay = document.getElementById('overlay');
 
     if (goalData) {
         goalText.textContent = goalData.text;
         progressFill.style.width = `${goalData.progress}%`;
 
         if (goalData.progress == 100) {
-            alert('Congratulations! You have achieved your goal!');
+            overlay.style.display = 'block';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 3000);  // Show overlay for 3 seconds
         }
     }
 }
@@ -74,7 +78,13 @@ function displayMoodData(moodData) {
             setTimeout(() => {
                 overlay.style.display = 'none';  // Hide after a few seconds
             }, 3000);  // Display the image for 3 seconds
+        } else {
+            console.log('No image found for the mood:', moodData.text);
         }
+        const confirmationMessage = document.createElement('p');
+        confirmationMessage.textContent = 'Your mood has been recorded!';
+        confirmationMessage.style.color = 'green';
+        moodText.appendChild(confirmationMessage);
     }
 }
 
@@ -84,11 +94,8 @@ function getMoodImageUrl(mood) {
         'happy': 'images/joy.png',
         'excited': 'images/joy.png',
         'sad': 'images/fear.png',
-        
         'angry': 'images/anger.png',
-        'furious': 'images/anger.png',
         'disgust': 'images/disgust.png',
-        'attitude': 'images/disgust.png'
         // Add more mood-image pairs as needed
     };
     return moodImages[mood] || ''; // Return empty string if mood not found
@@ -111,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const user = auth.currentUser;
         if (user) {
             const userId = user.uid;
-            const goalData = { text: goal, progress: progress };
+            const goalData = { text: goal, progress: parseInt(progress, 10) };
             saveProgressData(userId, { goal: goalData });
             displayGoalData(goalData);
         }
