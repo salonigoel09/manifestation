@@ -1,7 +1,9 @@
 
 Manifestation Website
 
-## Watch the DEMO : (https://youtu.be/0QX72H_F6vU)
+## Watch the DEMO : ## 🎥 Demo
+<video src="https://youtu.be/0QX72H_F6vU" controls="controls" width="600" />
+
 
 
 Welcome to the Manifestation Website! This project is designed to help users set goals, track their progress, and stay motivated through daily affirmations and manifestation exercises.
