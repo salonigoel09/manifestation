@@ -1,8 +1,11 @@
 
 Manifestation Website
 
-## Watch the DEMO : ## 🎥 Demo
-<video src="C:\Users\Ssgoe\Videos\Captures\Manifestation Website and 8 more pages - Personal - Microsoft​ Edge 2025-09-10 19-51-16.mp4" controls="controls" width="1000"  />
+## Watch the DEMO : 
+
+
+https://github.com/user-attachments/assets/5aa00068-5b9e-4e4f-ad9b-4b7be8765cc8
+
 
 
 
