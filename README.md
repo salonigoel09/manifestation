@@ -2,7 +2,7 @@
 Manifestation Website
 
 ## Watch the DEMO : ## 🎥 Demo
-<video src="C:\Users\Ssgoe\Videos\Captures\Manifestation Website and 8 more pages - Personal - Microsoft​ Edge 2025-09-10 19-51-16.mp4" controls="controls" width="600" />
+<video src="C:\Users\Ssgoe\Videos\Captures\Manifestation Website and 8 more pages - Personal - Microsoft​ Edge 2025-09-10 19-51-16.mp4" controls="controls"  />
 
 
 
